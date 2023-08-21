@@ -5,10 +5,10 @@ import Button from '@/sharedComponents/Button'
 import { useForm } from '@/hooks/useForm'
 import { useLoading } from '@/hooks/useLoading'
 import emailjs from 'emailjs-com'
-import { toast } from 'react-toastify'
 import { FormEvent } from 'react'
 import { ThemeProp, initialState } from '../../../type'
-
+import { FaCopy } from 'react-icons/fa'
+import {useRef} from "react"
 
 const Contact = ({ darkMode }: ThemeProp) => {
 
@@ -17,6 +17,9 @@ const Contact = ({ darkMode }: ThemeProp) => {
     const { name, email, message } = values as initialState
 
     const { isLoading, setIsLoading } = useLoading()
+
+    const emailRef = useRef<HTMLSpanElement>(null)
+    const numberRef = useRef<HTMLSpanElement>(null)
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -34,20 +37,25 @@ const Contact = ({ darkMode }: ThemeProp) => {
             .then((result) => {
                 console.log(result.text);
                 setIsLoading(false)
-                toast.success('Message sent successfully', {
-                    position: 'top-center',
-                    autoClose: 1000,
-                    hideProgressBar: true,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                })
+
                 reset()
             })
             .catch((error) => {
                 console.log(error.text);
                 setIsLoading(false)
             })
-        console.log(values)
+    }
+
+    // Copy to clipboard
+    const copyToClipboard = async (ref: any) => {
+        const textToCopy = ref.current?.innerText
+        try {
+            await navigator.clipboard.writeText(textToCopy)
+            console.log('Copied to clipboard')
+        }
+        catch (err) {
+            console.log('Failed to copy: ', err)
+        }
 
     }
 
@@ -115,21 +123,33 @@ const Contact = ({ darkMode }: ThemeProp) => {
             </div>
 
             <div className='mt-8 flex items-center justify-center text-xl tabletS:flex-col '>
-                <a href="mailto:juwonemmanuel22@gmail.com" title='juwonemmanuel22@gmail.com' >
-                    <div className={`border-[1.5px] text-center rounded-sm me-8 tabletS:me-0
+                <div className={`border-[1.5px] text-center rounded-sm me-8 tabletS:me-0 relative
                     p-4 w-[300px] bg-white border-gray-400 
                     tabletS:mb-6 mobileM:text-base  mobileM:font-semibold
                     ${darkMode ? 'dark' : ''}`}>
-                        juwonemmanuel22@gmail.com
+                    <div className='absolute top-1 text-lg right-1 cursor-pointer' 
+                    onClick={()=>copyToClipboard(emailRef) }
+                    >
+                        <FaCopy />
                     </div>
-                </a>
+                    <a href="mailto:juwonemmanuel22@gmail.com" title='juwonemmanuel22@gmail.com' >
+                        <span ref={emailRef}>
+                            juwonemmanuel22@gmail.com
+                        </span>
+                    </a>
+                </div>
 
-                <a href="tel:+2349032869229" title='+2349032869229' >
-                    <div className={`border-[1.5px] rounded-sm mobileM:text-base mobileM:font-semibold border-gray-400 
+                <div className={`border-[1.5px] rounded-sm mobileM:text-base mobileM:font-semibold border-gray-400 relative
                     text-center p-4 bg-white w-[300px] ${darkMode ? 'dark' : ''}`}>
-                        +2349032869229
-                    </div>
-                </a>
+                        <div className=' absolute top-1 right-1 text-lg cursor-pointer'>
+                            <FaCopy />
+                        </div>
+                    <a href="tel:+2349032869229" title='+2349032869229' >
+                        <span ref={numberRef} onClick={()=>copyToClipboard(numberRef)}>
+                            +2349032869229
+                        </span>
+                    </a>
+                </div>
 
             </div>
         </div>

@@ -6,8 +6,9 @@ import { ScrollToTop } from '@/sharedComponents/ScrollToTop'
 import { Footer } from '@/sharedComponents/Footer'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://juwon-akingbade.vercel.app'),
   title: 'Juwon Akingbade',
-  description: 'Juwon Akingbade is a software engineer based in Lagos, Nigeria.',
+  description: 'Juwon Akingbade is a Frontend engineer based in Lagos, Nigeria.',
   referrer: 'origin-when-cross-origin',
   keywords:['Juwon', 'Akingbade', 'Junny' ],
   alternates: {
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   },
   openGraph:{
     title:'Juwon Akingbade',
-    description:'Juwon Akingbade is a software engineer based in Lagos, Nigeria.',
+    description:'Juwon Akingbade is a Frontend engineer based in Lagos, Nigeria.',
     url:'/',
     images:'/Mine.jpg',
     type:'website',
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
   twitter:{
     card:'summary_large_image',
     title:'Juwon Akingbade',
-    description:'Juwon Akingbade is a software engineer based in Lagos, Nigeria',
+    description:'Juwon Akingbade is a Frontend engineer based in Lagos, Nigeria',
     images:'/Mine.jpg'
   },
   icons:{
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     }
   },
   verification:{
-    google:'google'
+    google:'m0U-ns5a0AyPiO7Udrdk5enYOmhB6VKm-5NmwqGUT0A'
   }
 }
 
