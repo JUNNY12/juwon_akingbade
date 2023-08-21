@@ -15,7 +15,7 @@
 </ul>
 
 <h1 id='overview'>Overview</h1>
-<img src='/preview.png' /> <nr/>
+<img src='./public/preview.png' /> <nr/>
 
 <h1 id='builtwith'>Built with</h1>
 <li>Next Js</li>
