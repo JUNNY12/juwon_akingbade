@@ -8,8 +8,11 @@ type TagsProps = {
     params: {
         tag: string
     }
-}Blog - Tags',
-    description: 'Related blog posts for a particular tag',
+}
+
+export const metadata: Metadata = {
+    title: 'Blog - Tags',
+    description: ' Related posts for tags',
 }
 
 export default async function Tags({ params: { tag } }: TagsProps) {
