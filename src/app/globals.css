@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
+}
+
+body {
+    scroll-behavior: smooth
+}
+
+.dark {
+    @apply bg-gray-800 text-zinc-100;
+}
+
+.darkText {
+    @apply text-zinc-100;
+}
+
+.darkBg {
+    @apply bg-gray-800;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1c1a1c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+h1 a.customed-heading{
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    @media (max-width: 768px) {
+        font-size: 1.5rem;
+    }
+}
+
+h2 a.customed-heading{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    @media (max-width: 768px) {
+        font-size: 1.25rem;
+    }
+}
+
+h3 a.customed-heading{
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    @media (max-width: 768px) {
+        font-size: 1rem;
+    }
+}
