@@ -3,12 +3,12 @@ import { Typography } from '@/sharedComponents/Typograph'
 import Button from '@/sharedComponents/Button'
 import Image from 'next/image'
 
-type ThemeProps ={
-    darkMode:boolean
+type ThemeProps = {
+    darkMode: boolean
 }
 
-const AboutBanner = ({darkMode}:ThemeProps) => {
-   
+const AboutBanner = ({ darkMode }: ThemeProps) => {
+
     return (
         <div className='pt-28'>
             <div className='flex gap-x-10 items-center justify-center
@@ -29,13 +29,15 @@ const AboutBanner = ({darkMode}:ThemeProps) => {
 
 
                     <div className='mt-6 inline-flex'>
-                        <a href="mailto:juwonemmanuel22@gmail.com">
+                        <a href="mailto:juwonemmanuel22@gmail.com" title='juwonemmanuel22@gmail.com'>
                             <Button className={`bg-black  p-2 w-32 text-center
                         transition duration-500 ease-in-out me-3 font-bold rounded-[20px]
                         ${darkMode ? 'bg-gray-200 text-gray-800' : 'text-white'}
                         `}>Get in Touch</Button>
                         </a>
-                        <a href='https://drive.google.com/file/d/1kO3eA1D66KB6TYjpWzlItzPd4DRaHfli/view?usp=sharing' target='_blank'>
+                        <a href='https://drive.google.com/file/d/1kO3eA1D66KB6TYjpWzlItzPd4DRaHfli/view?usp=sharing' 
+                        title='Juwon Akingbade CV'
+                        target='_blank'>
                             <Button className={`bg-white border border-black rounded-[20px]
                         text-black font-bold py-[0.45rem] px-[0.5rem] w-32 mobileL:w-32 text-center
                         transition duration-500 ease-in-out
@@ -49,7 +51,9 @@ const AboutBanner = ({darkMode}:ThemeProps) => {
 
                 <div className='w-2/5 tabletL:w-auto'>
                     <div className='h-[400px] w-[300px] object-cover rounded-sm mobileL:rounded-full mobileL:w-32 mobileL:h-32'>
-                        <Image src='/Mine.jpg' alt='Juwon Akingbade' width={400} height={500} priority className=' cursor-pointer rounded-sm mobileL:rounded-full transition duration-300 ease-in-out hover:grayscale' />
+                        <Image src='/Mine.jpg' alt='Juwon Akingbade'title='Juwon Akingbade'
+                        width={400} height={500} priority={true}
+                        className=' cursor-pointer rounded-sm mobileL:rounded-full transition duration-500 ease-in-out hover:grayscale' />
                     </div>
                 </div>
 

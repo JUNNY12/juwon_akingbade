@@ -16,17 +16,17 @@ export default async function PostList({ post }: PostListProps) {
 return (
     <Card className="h-full mb-0">
         <div className="mb-4">
-            <Link href={`/blog/${id}`}>
+            <Link href={`/blog/${id}`} title={`${id}`}>
                 <Typography variant={1} className="text-2xl tabletS:text-xl uppercase font-semibold underline">{title}</Typography>
             </Link>
-            <Typography variant={3} className=" text-sm italic">
+            <Typography variant={2} className=" text-sm italic">
                 {formattedDate}
             </Typography>
         </div>
         <p className="text-xl mb-3">
             {subtitle}
         </p> 
-        <Link className="text-xl underline mt-3"  href={`/blog/${id}`}>
+        <Link className="text-xl underline mt-3" title={`Read more on ${title}`}  href={`/blog/${id}`}>
             Read More
         </Link>
 

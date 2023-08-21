@@ -1,17 +1,39 @@
+"use client"
+
 import { useTheme } from "@/hooks/useTheme"
 import Link from "next/link"
 import Button from "./Button"
-import { type } from "os"
+import {useEffect, useRef} from "react"
 
 type DropNavProps = {
     isScrolled: boolean
+    setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const DropNav = ({ isScrolled }:DropNavProps) => {
+export const DropNav = ({ isScrolled, setIsMenuOpen }:DropNavProps) => {
     const { darkMode } = useTheme()
+    const dropRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() =>{
+        const handleOutsideClick = (e: MouseEvent) => {
+            if (dropRef.current && !dropRef.current.contains(e.target as Node)) {
+                setIsMenuOpen(false)
+            }
+        }
+        
+        document.addEventListener('click', handleOutsideClick)
+
+        return () => {
+            document.removeEventListener('click', handleOutsideClick)
+        }
+
+    }, [setIsMenuOpen])
+
     return (
-        <div className={!isScrolled ? `pb-6 font-myFont px-4 bg-white h-full ${darkMode ? 'dark' : ''} transition duration-500 ease-in-out`
-            : `bg-[#FFFFFF99] px-4 pb-6 backdrop-blur-md h-full shadow-sm shadow-gray-300 ${darkMode ? 'bg-[#1F293766] font-bold text-gray-800' : ''} transition duration-500 `
+        <div ref={dropRef} className={!isScrolled ? `pb-6 font-myFont px-4 bg-white shadow-sm shadow-gray-600 h-full
+        ${darkMode ? 'dark' : ''} transition duration-500 ease-in-out`
+        : `bg-[#FFFFFF99] px-4 pb-6 backdrop-blur-md h-full shadow-sm shadow-gray-600
+        ${darkMode ? 'bg-[#1F293766] font-bold text-gray-800' : ''} transition duration-500 `
         }>
             <div className="mb-4 pt-4 text-lg font-bold">
                 <Link href={`/blog`}>Blog</Link>

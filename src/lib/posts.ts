@@ -16,7 +16,7 @@ type fileTree ={
 
 // get post by name
 export async function getPostByName(fileName:string):Promise<BlogPost|undefined>{
-    const res = await fetch(`https://raw.githubusercontent.com/JUNNY12/portfolio-post/main/${fileName}`)
+    const res = await fetch(`https://raw.githubusercontent.com/JUNNY12/portfoliopost/main/${fileName}`)
 
     if(!res.ok) return undefined
 
@@ -66,7 +66,7 @@ export async function getPostByName(fileName:string):Promise<BlogPost|undefined>
 
 // get post meta
 export async function getPostsMeta(){
-    const res = await fetch('https://api.github.com/repos/JUNNY12/portfolio-post/git/trees/main?recursive=1',{
+    const res = await fetch('https://api.github.com/repos/JUNNY12/portfoliopost/git/trees/main?recursive=1',{
         headers: {
             Accept: 'application/vnd.github.v3+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
@@ -91,5 +91,5 @@ export async function getPostsMeta(){
         }
     }
 
-    return posts.sort((a,b) => a.date > b.date ? -1 : 1)
+    return posts.sort((a:any, b:any) => b.date - a.date)
 }

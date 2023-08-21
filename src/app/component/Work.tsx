@@ -8,13 +8,13 @@ import { FaExternalLinkAlt } from "react-icons/fa"
 import { data } from '../../lib/data'
 import { ThemeProp } from '../../../type'
 
-const Work = ({darkMode}:ThemeProp) => {
+const Work = ({ darkMode }: ThemeProp) => {
 
     return (
         <div className=' mt-20 px-28 tabletL:px-6'>
 
-            <div className='mb-6 w-[200px] font-bold bg-gray-200 text-center cursor-pointer hover:bg-gray-300  text-black p-1 transition duration-300 ease-in-out'>
-                <Typography variant={1}>Work</Typography>
+            <div className='mb-6 w-[200px] font-bold bg-gray-200 text-center cursor-pointer hover:bg-gray-300  text-black p-1 transition duration-500 ease-in-out'>
+                <Typography variant={2}>Work</Typography>
             </div>
 
             <div className='text-3xl mobileL:text-2xl font-bold mb-4'>
@@ -30,7 +30,7 @@ const Work = ({darkMode}:ThemeProp) => {
                     data.filter((item) => item.status === "Completed").map((item, index) => {
                         const lastIndex = data.length - 1
                         return (
-                            <Card key={index} className={`relative ${index === lastIndex? 'mb-0':'mb-6'}`} title={`${item.name}`} arial-label='project'>
+                            <Card key={index} className={`relative ${index === lastIndex ? 'mb-0' : 'mb-6'}`} title={`${item.name}`} arial-label='project'>
                                 <div className='w-[250px] h-[250px] object-cover mb-4'>
                                     <Image src={item.image} title={item.name} width={400} height={400} className=' object-cover w-full h-full rounded-sm' priority alt={item.name} />
                                 </div>

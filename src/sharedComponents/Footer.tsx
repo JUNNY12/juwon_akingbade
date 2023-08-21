@@ -1,19 +1,17 @@
+"use client"
+
 import { AiOutlineGithub } from "react-icons/ai"
 import { AiFillTwitterCircle } from "react-icons/ai"
 import { AiFillLinkedin } from "react-icons/ai"
 import { Typography } from "./Typograph"
+import { useTheme } from "@/hooks/useTheme"
 
-
-type Theme = {       
-    darkMode: boolean
-}
-
-
-export const Footer = ({darkMode}:Theme) => {
+export const Footer = () => {
+    const{darkMode} = useTheme()
     
     const date = new Date().getFullYear()
     return (
-        <footer className={` font-myFont bg-gray-200 border-t border-gray-300 px-28 tabletL:px-6  py-2 ${darkMode?'dark': ''}`}>
+        <footer className={` font-myFont bg-gray-200 border-t border-gray-300 px-28 tabletL:px-6  py-2 ${darkMode?'dark': ''} transition duration-500 ease-in-out`}>
             <div className='flex justify-between items-center mt-12 tabletS:mt-2 tabletS:flex-col'>
                 <div className="tabletS:mb-6">
                     <Typography variant={3} className='text-center text-2xl mt-8'>Juwon Akingbade </Typography>

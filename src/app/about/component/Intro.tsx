@@ -5,7 +5,7 @@ type ThemeProps = {
     darkMode: boolean
 }
 
-const Intro = ({darkMode}:ThemeProps) => {
+const Intro = ({ darkMode }: ThemeProps) => {
 
     return (
         <div className={`mt-10 mobileL:mt-16 pb-8 ${darkMode ? 'darkbg' : ''} `}>
@@ -31,7 +31,7 @@ const Intro = ({darkMode}:ThemeProps) => {
 
             <div className='my-6'>
 
-                <div className='mb-4 w-[200px] bg-gray-200 text-center cursor-pointer hover:bg-gray-300  text-black p-1 font-[550] transition duration-300 ease-in-out'>
+                <div className='mb-4 w-[200px] bg-gray-200 text-center cursor-pointer hover:bg-gray-300  text-black p-1 font-[550] transition duration-500 ease-in-out'>
                     <Typography variant={1}>Tools</Typography>
                 </div>
 
@@ -40,14 +40,14 @@ const Intro = ({darkMode}:ThemeProps) => {
                 </p>
 
                 <ul className='font-bold list-disc marker:text-gray-400 ml-4'>
-                        <li className="mb-4">HTML5 / CSS3</li>
-                        <li className="mb-4">JAVASCRIPT [ES6+]</li>
-                        <li className="mb-4">TYPESCRIPT</li>
-                        <li className="mb-4">REACT JS</li>
-                        <li className="mb-4"> NEXT JS</li>
-                        <li className="mb-4">REDUX TOOLKIT</li>
-                        <li className="mb-4"> GIT</li>
-                        <li className="mb-4">FIREBASE</li>
+                    <li className="mb-4">HTML5 / CSS3</li>
+                    <li className="mb-4">JAVASCRIPT [ES6+]</li>
+                    <li className="mb-4">TYPESCRIPT</li>
+                    <li className="mb-4">REACT JS</li>
+                    <li className="mb-4"> NEXT JS</li>
+                    <li className="mb-4">REDUX TOOLKIT</li>
+                    <li className="mb-4"> GIT</li>
+                    <li className="mb-4">FIREBASE</li>
                 </ul>
 
             </div>

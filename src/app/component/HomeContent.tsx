@@ -5,7 +5,6 @@ import Hero from "./Hero";
 import Work from "./Work";
 import { Container } from "@/sharedComponents/Container";
 import { useTheme } from "@/hooks/useTheme";
-import { Footer } from "@/sharedComponents/Footer";
 
 export default function HomeContent() {
     const { darkMode } = useTheme();
@@ -15,7 +14,6 @@ export default function HomeContent() {
                 <Hero darkMode={darkMode} />
                 <Work darkMode = {darkMode} />
                 <Contact darkMode={darkMode} />
-                <Footer darkMode={darkMode} />
             </Container>
         </main>
     )

@@ -11,7 +11,7 @@ export default function BlogContainer({children}:ChildrenProps) {
 
     return (
         <section className={`${darkMode? 'bg-gray-800 text-white' :'bg-white text-gray-800'} 
-        min-h-min pb-12 pt-28 px-28 tabletL:px-6
+        min-h-screen pb-12 pt-28 px-28 tabletL:px-6
         transition duration-500 ease-in-out`}>
             <div className="flex items-center tabletS:flex-col tabletS:justify-center">
             <Image
@@ -21,10 +21,11 @@ export default function BlogContainer({children}:ChildrenProps) {
                 height={100}
                 alt="Junny"
                 priority={true}
+                title="Juwon Akingbade"
             />
             <div>
                 <p className="text-xl mobileXL:text-lg">
-                    Penned by Juwon Akingbade, a 
+                    Written by Juwon Akingbade, a 
                     Frontend Engineer specializing in React/Next Js,
                     and TypeScript. Residing in Lagos State, Nigeria. 
                         <span className="border-b-4 border-gray-900 font-bold">

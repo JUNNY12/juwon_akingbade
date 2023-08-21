@@ -1,6 +1,6 @@
 'use client'
 import { Typography } from '@/sharedComponents/Typograph'
-import { Input,Textarea } from '@/sharedComponents/Input'
+import { Input, Textarea } from '@/sharedComponents/Input'
 import Button from '@/sharedComponents/Button'
 import { useForm } from '@/hooks/useForm'
 import { useLoading } from '@/hooks/useLoading'
@@ -10,15 +10,15 @@ import { FormEvent } from 'react'
 import { ThemeProp, initialState } from '../../../type'
 
 
-const Contact = ({darkMode}:ThemeProp) => {
+const Contact = ({ darkMode }: ThemeProp) => {
 
-    const {values, handleInputChange, reset} = useForm()
+    const { values, handleInputChange, reset } = useForm()
 
     const { name, email, message } = values as initialState
 
-    const {isLoading, setIsLoading} = useLoading()
+    const { isLoading, setIsLoading } = useLoading()
 
-    const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setIsLoading(true)
         const templateParams = {
@@ -54,7 +54,7 @@ const Contact = ({darkMode}:ThemeProp) => {
     return (
         <div className='pb-16 px-28 tabletL:px-6 font-bold mt-20 tabletS:pb-24 bg-footer bg-cover mobileL:bg-contain mobileL:bg-no-repeat py-12'>
             <div className='mb-6 w-[200px] bg-gray-200 text-center cursor-pointer hover:bg-gray-300  text-black p-1 font-bold'>
-                <Typography variant={1}>Contact</Typography>
+                <Typography variant={2}>Contact</Typography>
             </div>
 
             <div className={`text-3xl font-bold mb-4 text-gray-800
@@ -100,7 +100,7 @@ const Contact = ({darkMode}:ThemeProp) => {
                     </div>
 
                     <div>
-                        <Button className={`w-full p-2 hover:bg-white hover:text-black
+                        <Button className={`w-full p-2 hover:bg-white hover:text-black transition duration-500 ease-in-out
                         hover:border-[1.5px] hover:border-black bg-black
                         rounded-sm font-bold
                         ${darkMode ? 'bg-zinc-100 text-gray-800' : 'text-zinc-100'}
@@ -115,7 +115,7 @@ const Contact = ({darkMode}:ThemeProp) => {
             </div>
 
             <div className='mt-8 flex items-center justify-center text-xl tabletS:flex-col '>
-                <a href="mailto:juwonemmanuel22@gmail.com" >
+                <a href="mailto:juwonemmanuel22@gmail.com" title='juwonemmanuel22@gmail.com' >
                     <div className={`border-[1.5px] text-center rounded-sm me-8 tabletS:me-0
                     p-4 w-[300px] bg-white border-gray-400 
                     tabletS:mb-6 mobileM:text-base  mobileM:font-semibold
@@ -124,7 +124,7 @@ const Contact = ({darkMode}:ThemeProp) => {
                     </div>
                 </a>
 
-                <a href="tel:+2349032869229" >
+                <a href="tel:+2349032869229" title='+2349032869229' >
                     <div className={`border-[1.5px] rounded-sm mobileM:text-base mobileM:font-semibold border-gray-400 
                     text-center p-4 bg-white w-[300px] ${darkMode ? 'dark' : ''}`}>
                         +2349032869229

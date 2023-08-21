@@ -7,15 +7,15 @@ import { ThemeProp } from '../../../type'
 
 
 
-const Hero = ({darkMode}:ThemeProp) => {
-   
+const Hero = ({ darkMode }: ThemeProp) => {
+
     return (
         <div className='pt-28'>
             <FlexContainer>
                 <div className='w-3/5 tabletL:w-auto tabletL:mb-8'>
                     <div className='mb-4 w-[200px] bg-gray-200 text-center 
                     cursor-pointer hover:bg-gray-300  text-black p-1 font-[550] 
-                    transition duration-300 ease-in-out
+                    transition duration-500 ease-in-out
                     
                     '>
                         <Typography variant={1}>Frontend Engineer</Typography>
@@ -52,7 +52,7 @@ const Hero = ({darkMode}:ThemeProp) => {
 
                 <div className='w-2/5 tabletL:w-auto rounded-sm'>
                     <div >
-                        <Image src='/Mine.jpg' alt='Juwon Akingbade' title='Juwon Akingbade' width={400} height={400} className='hover:grayscale transition duration-300 ease-in-out rounded-sm cursor-pointer' priority={true} />
+                        <Image src='/Mine.jpg' alt='Juwon Akingbade' title='Juwon Akingbade' width={400} height={400} className='hover:grayscale transition duration-500 ease-in-out rounded-sm cursor-pointer' priority={true} />
                     </div>
                 </div>
             </FlexContainer>
