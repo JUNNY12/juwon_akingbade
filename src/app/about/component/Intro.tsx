@@ -1,5 +1,6 @@
 "use client"
 import { Typography } from "@/sharedComponents/Typograph"
+import Tools from "./Tools"
 
 type ThemeProps = {
     darkMode: boolean
@@ -38,18 +39,7 @@ const Intro = ({ darkMode }: ThemeProps) => {
                 <p className='text-lg mb-4 mobileL:text-base mobileL:leading-[1.5]'>
                     I build web applications and sites using technologies such as:
                 </p>
-
-                <ul className='font-bold list-disc marker:text-gray-400 ml-4'>
-                    <li className="mb-4">HTML5 / CSS3</li>
-                    <li className="mb-4">JAVASCRIPT [ES6+]</li>
-                    <li className="mb-4">TYPESCRIPT</li>
-                    <li className="mb-4">REACT JS</li>
-                    <li className="mb-4"> NEXT JS</li>
-                    <li className="mb-4">REDUX TOOLKIT</li>
-                    <li className="mb-4"> GIT</li>
-                    <li className="mb-4">FIREBASE</li>
-                </ul>
-
+                <Tools />
             </div>
         </div>
     )

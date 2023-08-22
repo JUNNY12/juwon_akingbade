@@ -15,7 +15,7 @@ export const Card = ({children, className, ...rest}:CardProps) => {
     <article 
     {...rest}
     className={`${className} p-4 border rounded-md 
-    shadow-lg h-[460px]
+    shadow-lg h-[320px]
     transition-all ease-in-out duration-500 cursor-pointer hover:scale-105 
     ${darkMode ? ' bg-white text-gray-800 shadow-black' : 'shadow-slate-300'}
     `}>

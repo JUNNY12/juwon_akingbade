@@ -10,7 +10,7 @@ import { ThemeProp } from '../../../type'
 const Hero = ({ darkMode }: ThemeProp) => {
 
     return (
-        <div className='pt-28'>
+        <div className='pt-28 tabletS:mx-3'>
             <FlexContainer>
                 <div className='w-3/5 tabletL:w-auto tabletL:mb-8'>
                     <div className='mb-4 w-[200px] bg-gray-200 text-center 

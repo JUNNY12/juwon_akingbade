@@ -18,7 +18,7 @@
 }
 
 body {
-    scroll-behavior: smooth
+    scroll-behavior: smooth;
 }
 
 .dark {
@@ -77,4 +77,17 @@ h3 a.customed-heading{
     @media (max-width: 768px) {
         font-size: 1rem;
     }
+}
+
+
+.slide-in {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    transition: .5s ease-in-out;
+}
+
+.zoom-in {
+    transform: scale(1) !important;
+    opacity: 1 !important;
+    transition: .5s ease-in-out;
 }

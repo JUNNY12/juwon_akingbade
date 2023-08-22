@@ -29,7 +29,7 @@ export default function BlogContainer({children}:ChildrenProps) {
                     Frontend Engineer specializing in React/Next Js,
                     and TypeScript. Residing in Lagos State, Nigeria. 
                         <span className="border-b-4 border-gray-900 font-bold">
-                        <a href="http://"> 
+                            <a href="https://twitter.com/juwonemmanuel6"> 
                             <span className=" mobileXL:text-base" > Connect with Me on twitter.</span>
                             <span className='text-sm'> 🚀🚀🚀</span>
                         </a>

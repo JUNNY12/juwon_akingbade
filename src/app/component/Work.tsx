@@ -1,5 +1,4 @@
 "use client"
-
 import { Typography } from '@/sharedComponents/Typograph'
 import { Card } from '@/sharedComponents/Card'
 import Image from 'next/image'
@@ -8,10 +7,11 @@ import { FaExternalLinkAlt } from "react-icons/fa"
 import { data } from '../../lib/data'
 import { ThemeProp } from '../../../type'
 
+
 const Work = ({ darkMode }: ThemeProp) => {
 
     return (
-        <div className=' mt-20 px-28 tabletL:px-6'>
+        <div className=' mt-20 px-28 tabletL:px-6 tabletS:mx-3'>
 
             <div className='mb-6 w-[200px] font-bold bg-gray-200 text-center cursor-pointer hover:bg-gray-300  text-black p-1 transition duration-500 ease-in-out'>
                 <Typography variant={2}>Work</Typography>
@@ -25,14 +25,14 @@ const Work = ({ darkMode }: ThemeProp) => {
                 <p>Browse through some of my projects to see my coding process and expertise in action.</p>
             </div>
 
-            <div className='flex items-center justify-center gap-x-8 h-fit mt- flex-wrap'>
+            <div  className=' flex items-center justify-center gap-x-8 h-fit mt- flex-wrap'>
                 {
                     data.filter((item) => item.status === "Completed").map((item, index) => {
                         const lastIndex = data.length - 1
                         return (
                             <Card key={index} className={`relative ${index === lastIndex ? 'mb-0' : 'mb-6'}`} title={`${item.name}`} arial-label='project'>
-                                <div className='w-[250px] h-[250px] object-cover mb-4'>
-                                    <Image src={item.image} title={item.name} width={400} height={400} className=' object-cover w-full h-full rounded-sm' priority alt={item.name} />
+                                <div className='mb-4'>
+                                    <Image src={item.image} title={item.name} width={250} height={250}  priority={true} alt={item.name} />
                                 </div>
                                 <Typography variant={3} className=' text-xl font-bold mb-3 w-[250px] text-center transition duration-500 ease-in-out'>{item.name}</Typography>
 

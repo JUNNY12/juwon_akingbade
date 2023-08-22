@@ -1,30 +1,25 @@
-import { useState } from "react";
+
 
 type ModalProps = {
     message: string;
+    showModal?: boolean;
+    setShowModal?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function AlertModal({ message }: ModalProps) {
-    const [showModal, setShowModal] = useState(false);
+export default function AlertModal({ message, showModal, setShowModal }: ModalProps) {
 
-    const openModal = () => {
-        setShowModal(true);
-    };
-
-    const closeModal = () => {
-        setShowModal(false);
-    };
-
+    if(showModal === true && setShowModal){
+        setTimeout(() => {
+            setShowModal(false);
+        }, 2000);
+    }
     return (
         <>
-            <button onClick={openModal}>Open Modal</button>
-
             {showModal && (
-                <div className="modal">
-                    <div className="modal-content">
-                        <span className="close" onClick={closeModal}>
-                            &times;
-                        </span>
+                <div className={`bg-white shadow-md shadow-black
+                text-green-600 h-12 flex justify-center items-center 
+                fixed top-4 right-1 font-light z-50 w-[250px] rounded-sm text-lg`}>
+                    <div>
                         <p>{message}</p>
                     </div>
                 </div>

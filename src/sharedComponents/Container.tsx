@@ -9,7 +9,7 @@ type ContainerProps = {
 export const Container = ({ children, className }:ContainerProps) => {
     const { darkMode } = useTheme()
     return (
-        <section className={`${className} tabletS:mx-3 bg-white}`}
+        <section className={`${className} bg-white}`}
         >
             {children}
         </section>

@@ -91,5 +91,5 @@ export async function getPostsMeta(){
         }
     }
 
-    return posts.sort((a:any, b:any) => b.date - a.date)
+    return posts.sort((a, b) => a.date > b.date ? -1 : 1)
 }

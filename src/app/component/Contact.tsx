@@ -8,14 +8,16 @@ import emailjs from 'emailjs-com'
 import { FormEvent } from 'react'
 import { ThemeProp, initialState } from '../../../type'
 import { FaCopy } from 'react-icons/fa'
-import {useRef} from "react"
+import { useRef, useState, RefObject } from "react"
+import AlertModal from '@/sharedComponents/AlertModal'
 
 const Contact = ({ darkMode }: ThemeProp) => {
+    const [showModal, setShowModal] = useState(false);
+    const [showCopyAlert, setShowCopyAlert] = useState(false);
+
 
     const { values, handleInputChange, reset } = useForm()
-
     const { name, email, message } = values as initialState
-
     const { isLoading, setIsLoading } = useLoading()
 
     const emailRef = useRef<HTMLSpanElement>(null)
@@ -37,8 +39,8 @@ const Contact = ({ darkMode }: ThemeProp) => {
             .then((result) => {
                 console.log(result.text);
                 setIsLoading(false)
-
                 reset()
+                setShowModal(true)
             })
             .catch((error) => {
                 console.log(error.text);
@@ -47,11 +49,12 @@ const Contact = ({ darkMode }: ThemeProp) => {
     }
 
     // Copy to clipboard
-    const copyToClipboard = async (ref: any) => {
-        const textToCopy = ref.current?.innerText
+    const copyToClipboard = async (ref: RefObject<HTMLSpanElement>) => {
+        const textToCopy = ref.current?.innerText as string
         try {
             await navigator.clipboard.writeText(textToCopy)
             console.log('Copied to clipboard')
+            setShowCopyAlert(true)
         }
         catch (err) {
             console.log('Failed to copy: ', err)
@@ -72,7 +75,10 @@ const Contact = ({ darkMode }: ThemeProp) => {
             </div>
 
             <div className='flex items-center justify-center'>
-                <form onSubmit={handleSubmit} className={` flex flex-col w-[400px] rounded-md bg-gray-200 p-6 mb-8 h-[350px] 
+                {
+                    showModal && <AlertModal message='Submitted succesfully' showModal={showModal} setShowModal={setShowModal} />
+                }
+                <form onSubmit={handleSubmit} className={` flex flex-col w-[400px] rounded-md bg-gray-200 p-4 mb-8 h-[350px] 
                 ${darkMode ? '' : ''}`}>
                     <div className='mb-6'>
                         <Input
@@ -123,12 +129,15 @@ const Contact = ({ darkMode }: ThemeProp) => {
             </div>
 
             <div className='mt-8 flex items-center justify-center text-xl tabletS:flex-col '>
+                {
+                    showCopyAlert && <AlertModal message='Text copied to clipboard' showModal={showCopyAlert} setShowModal={setShowCopyAlert} />
+                }
                 <div className={`border-[1.5px] text-center rounded-sm me-8 tabletS:me-0 relative
                     p-4 w-[300px] bg-white border-gray-400 
                     tabletS:mb-6 mobileM:text-base  mobileM:font-semibold
                     ${darkMode ? 'dark' : ''}`}>
-                    <div className='absolute top-1 text-lg right-1 cursor-pointer' 
-                    onClick={()=>copyToClipboard(emailRef) }
+                    <div className='absolute top-1 text-lg right-1 cursor-pointer'
+                        onClick={() => copyToClipboard(emailRef)}
                     >
                         <FaCopy />
                     </div>
@@ -141,11 +150,13 @@ const Contact = ({ darkMode }: ThemeProp) => {
 
                 <div className={`border-[1.5px] rounded-sm mobileM:text-base mobileM:font-semibold border-gray-400 relative
                     text-center p-4 bg-white w-[300px] ${darkMode ? 'dark' : ''}`}>
-                        <div className=' absolute top-1 right-1 text-lg cursor-pointer'>
-                            <FaCopy />
-                        </div>
+                    <div
+                        onClick={() => copyToClipboard(numberRef)}
+                        className=' absolute top-1 right-1 text-lg cursor-pointer'>
+                        <FaCopy />
+                    </div>
                     <a href="tel:+2349032869229" title='+2349032869229' >
-                        <span ref={numberRef} onClick={()=>copyToClipboard(numberRef)}>
+                        <span ref={numberRef} >
                             +2349032869229
                         </span>
                     </a>
